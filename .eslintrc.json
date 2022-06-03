@@ -24,6 +24,7 @@
     "@typescript-eslint/quotes": ["error", "single"],
     "@typescript-eslint/semi": ["warn", "always"],
     "@typescript-eslint/comma-dangle": ["error", "never"],
+    "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
@@ -32,6 +33,13 @@
     "linebreak-style": "off",
     "no-nested-ternary": "off",
     "react/self-closing-comp": "warn",
-    "import/prefer-default-export": "off"
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index", "type"]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
