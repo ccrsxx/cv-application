@@ -5,4 +5,3 @@ export const cvConfig = {
   minScale: 0.35,
   maxScale: 1.5
 };
-

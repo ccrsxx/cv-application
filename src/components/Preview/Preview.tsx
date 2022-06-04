@@ -1,4 +1,7 @@
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+import { Header } from './Header';
+import { Aside } from './Aside';
+import { Main } from './Main';
 import { Cv } from './Cv';
 import type { RefObject } from 'react';
 import type { ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
@@ -26,7 +29,11 @@ export function Preview({ cvConfig, transformRef, getCvScale }: PreviewProps) {
           wrapperClass='h-screen max-w-[55vw] min-w-[55vw]'
           contentClass='[padding-block:20px]'
         >
-          <Cv />
+          <Cv>
+            <Header />
+            <Aside />
+            <Main />
+          </Cv>
         </TransformComponent>
       </TransformWrapper>
     </div>

@@ -7,8 +7,8 @@ module.exports = {
         'work-sans': ['Work Sans', 'sans-serif']
       },
       colors: {
-        'text-color': '#a6a6a6',
-        'dark-text-color': '#2e2e2e',
+        'gray-color': '#a6a6a6',
+        'dark-color': '#2e2e2e',
         'main-bg': '#1c1c1c'
       }
     }

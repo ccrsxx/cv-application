@@ -32,11 +32,12 @@
     "no-console": "warn",
     "linebreak-style": "off",
     "no-nested-ternary": "off",
+    "react/require-default-props": "off",
     "react/self-closing-comp": "warn",
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "parent", "sibling", "index", "type"]
+        "groups": ["builtin", "external", "sibling", "parent", "index", "type"]
       }
     ],
     "import/prefer-default-export": "off",
