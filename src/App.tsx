@@ -1,14 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { Editor, Preview } from './components';
 import {
+  cvConfig,
+  defaultCvData,
   useWindowSize,
   PreviewContext,
-  cvConfig,
   takeScreenshot
 } from './common';
 import type { ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
+import type { ICvData } from './types';
 
 export function App() {
+  const [cvData, setCvData] = useState<ICvData>(defaultCvData);
   const [currentEditor, setCurrentEditor] = useState('info');
   const [windowWidth, windowHeight] = useWindowSize();
 

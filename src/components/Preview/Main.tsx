@@ -17,8 +17,8 @@ export function Main() {
           title='Software Engineer'
           year={{ start: 2014, end: 2017 }}
           info={`Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-                  quasi voluptatem alias ab hic iste architecto illum unde illo eius,
-                  rerum et. Voluptas tempore id eos voluptatibus libero enim aliquam.`}
+                 quasi voluptatem alias ab hic iste architecto illum unde illo eius,
+                 rerum et. Voluptas tempore id eos voluptatibus libero enim aliquam.`}
           company='Google'
         />
         <Experience
