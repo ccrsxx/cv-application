@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center rounded-xl bg-btn-color px-4 py-2 text-gray-color transition-all
+           duration-300 hover:text-accent-color hover:brightness-150 focus:ring-offset-transparent focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-accent-color focus-visible:ring-offset-2 active:scale-[0.85];
+  }
+}
+
+button > svg {
+  @apply -m-2;
+}

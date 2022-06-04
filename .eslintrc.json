@@ -32,6 +32,7 @@
     "no-console": "warn",
     "linebreak-style": "off",
     "no-nested-ternary": "off",
+    "react/jsx-no-constructed-context-values": "off",
     "react/require-default-props": "off",
     "react/self-closing-comp": "warn",
     "import/order": [

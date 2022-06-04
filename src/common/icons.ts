@@ -3,6 +3,8 @@ export {
   RiPhoneLine,
   RiGlobalLine,
   RiGithubLine,
+  RiZoomInLine,
+  RiZoomOutLine,
   RiMapPin2Line,
   RiArrowLeftSLine,
   RiArrowRightSLine
