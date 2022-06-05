@@ -11,7 +11,7 @@ import {
 export function Aside() {
   return (
     <aside
-      className='flex h-full flex-col gap-16 rounded-bl-lg bg-main-bg
+      className='flex h-full flex-col gap-16 rounded-bl-lg bg-main-color
                  px-10 py-11 text-gray-color'
     >
       <Section name='contact'>

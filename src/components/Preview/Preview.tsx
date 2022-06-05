@@ -4,9 +4,7 @@ import { Aside } from './Aside';
 import { Main } from './Main';
 import { Zoom } from './Zoom';
 import { Cv } from './Cv';
-import type { RefObject } from 'react';
-import type { ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
-import type { ICvConfig } from '../../types';
+import type { RefObject, ReactZoomPanPinchRef, ICvConfig } from '../../types';
 
 interface PreviewProps {
   cvConfig: ICvConfig;

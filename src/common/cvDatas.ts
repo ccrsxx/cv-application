@@ -1,5 +1,3 @@
-import type { ICvData } from '../types';
-
 export const cvConfig = {
   previewWidthPercent: 0.55,
   resumeWidth: 950,

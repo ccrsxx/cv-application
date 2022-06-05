@@ -3,7 +3,7 @@ export function Header() {
     <header className='col-span-2 rounded-t-lg bg-white text-dark-color'>
       <h1
         className='flex h-[170px] items-center justify-center gap-10
-                     text-5xl font-light uppercase tracking-[14px]'
+                   text-5xl font-light uppercase tracking-[14px]'
       >
         <span className='font-medium'>Makise</span> Kurisu
       </h1>
