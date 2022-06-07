@@ -2,6 +2,6 @@ export const editorSections = [
   'info',
   'contact',
   'education',
-  'work',
+  'experience',
   'skills'
 ];

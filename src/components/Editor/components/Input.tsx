@@ -6,7 +6,9 @@ interface InputProps {
   value?: string;
   textarea?: boolean;
   placeholder: string;
-  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export function Input({
@@ -26,14 +28,16 @@ export function Input({
       </label>
       {textarea ? (
         <textarea
-          className='h-32 resize-none rounded-lg bg-input-color py-2 px-3 font-poppins
+          className='h-full resize-none rounded-lg bg-input-color py-2 px-3 font-poppins
                      text-sm text-gray-color placeholder-neutral-500 outline-none
                      transition-all duration-300 hover:brightness-110 focus:text-white 
                      focus:brightness-[1.15] active:scale-[0.98] active:duration-150'
           id={id}
           name={id}
+          value={value}
           autoComplete='pussy'
           placeholder={placeholder}
+          onChange={handleChange}
         />
       ) : (
         <input

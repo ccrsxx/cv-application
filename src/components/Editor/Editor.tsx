@@ -1,5 +1,4 @@
-import { Form } from './Form';
-import { Navigator } from './Navigator';
+import { Header, Form, Navigator } from './components';
 import type { IFormData, SectionsName } from '../../types';
 
 interface EditorProps {
@@ -35,32 +34,149 @@ const formData = {
         placeholder: 'Quantum Physicist'
       },
       {
-        id: 'profileText',
+        id: 'profile',
         wide: true,
         type: 'text',
         label: 'Profile',
         textarea: true,
         placeholder: 'I wanna bang Emilia'
       }
-    ],
-    styles: 'grid flex-1 grid-cols-2 gap-4 [grid-template-rows:auto_auto_1fr]'
+    ]
+  },
+  contact: {
+    inputFields: [
+      {
+        id: 'website',
+        wide: true,
+        type: 'text',
+        label: 'Website',
+        textarea: false,
+        placeholder: 'kurisu.jp'
+      },
+      {
+        id: 'email',
+        wide: true,
+        type: 'text',
+        label: 'Email',
+        textarea: false,
+        placeholder: 'makise@kurisu.jp'
+      },
+      {
+        id: 'address',
+        wide: false,
+        type: 'text',
+        label: 'Address',
+        textarea: false,
+        placeholder: 'Tokyo, Japan'
+      },
+      {
+        id: 'phone',
+        wide: false,
+        type: 'text',
+        label: 'Phone',
+        textarea: false,
+        placeholder: '555-555-5555'
+      }
+    ]
+  },
+  education: {
+    inputFields: [
+      {
+        id: 'degree',
+        wide: false,
+        type: 'text',
+        label: 'Degree',
+        textarea: false,
+        placeholder: 'Bachelor of Science'
+      },
+      {
+        id: 'university',
+        wide: false,
+        type: 'text',
+        label: 'University',
+        textarea: false,
+        placeholder: 'University of Tokyo'
+      },
+      {
+        id: 'from',
+        wide: false,
+        type: 'text',
+        label: 'From',
+        textarea: false,
+        placeholder: '2010'
+      },
+      {
+        id: 'to',
+        wide: false,
+        type: 'text',
+        label: 'To',
+        textarea: false,
+        placeholder: '2014'
+      }
+    ]
+  },
+  experience: {
+    inputFields: [
+      {
+        id: 'title',
+        wide: false,
+        type: 'text',
+        label: 'Title',
+        textarea: false,
+        placeholder: 'Software Engineer'
+      },
+      {
+        id: 'company',
+        wide: false,
+        type: 'text',
+        label: 'Company',
+        textarea: false,
+        placeholder: 'Google'
+      },
+      {
+        id: 'from',
+        wide: false,
+        type: 'text',
+        label: 'From',
+        textarea: false,
+        placeholder: '2020'
+      },
+      {
+        id: 'to',
+        wide: false,
+        type: 'text',
+        label: 'To',
+        textarea: false,
+        placeholder: 'Present'
+      },
+      {
+        id: 'description',
+        wide: true,
+        type: 'text',
+        label: 'Description',
+        textarea: true,
+        placeholder: 'I was a Software Engineer at Google'
+      }
+    ]
   }
 } as IFormData;
 
 export function Editor({ editorIndex, editorSections }: EditorProps) {
   const editorName = editorSections[editorIndex] as SectionsName;
-  const sectionFormData = formData[editorName];
+  const sectionInputFields = formData[editorName];
 
   return (
     <div
-      className='flex h-[540px] w-full max-w-lg flex-col gap-4 rounded-lg bg-main-color
-                 p-8 font-kumbh-san'
+      className='relative flex h-[540px] w-full max-w-lg flex-col gap-4 rounded-lg
+                 bg-main-color p-8 font-kumbh-san'
     >
-      <h3 className='ml-0.5 text-xl font-bold capitalize text-white'>
-        {editorName}
-      </h3>
-      <Form {...sectionFormData} editorName={editorName} />
-      <Navigator editorIndex={editorIndex} items={editorSections} />
+      <Header editorName={editorName} />
+      <Form {...sectionInputFields} editorName={editorName} />
+      <Navigator
+        currentIndex={editorIndex}
+        items={editorSections}
+        inEditorSection
+      />
     </div>
   );
 }

@@ -1,27 +1,36 @@
 import type { IconType } from '../../types';
 
 interface ButtonProps {
-  Icon: IconType;
+  Icon?: IconType;
   label?: string;
   flip?: boolean;
+  disabled?: boolean;
   className?: string;
   onClick?: () => void;
 }
 
-export function Button({ Icon, label, flip, className, onClick }: ButtonProps) {
+export function Button({
+  Icon,
+  label,
+  flip,
+  disabled,
+  className,
+  onClick
+}: ButtonProps) {
   return (
     <button
-      className={`${className} flex w-full items-center justify-center gap-4 rounded-lg
-                  bg-btn-color px-4 py-2 text-gray-color transition-all duration-300 
-                  hover:text-accent-color hover:brightness-125 focus:ring-offset-transparent
-                  focus-visible:outline-none focus-visible:ring focus-visible:ring-accent-color
-                  active:scale-90 active:duration-150`}
+      className={`${className} flex w-full max-w-[128px] items-center justify-center gap-4 rounded-lg
+                  bg-btn-color px-4 py-2 font-medium capitalize text-gray-color
+                  transition-all duration-300 hover:text-accent-color hover:brightness-125
+                  focus:ring-offset-transparent focus-visible:outline-none focus-visible:ring
+                  focus-visible:ring-accent-color active:scale-90 active:duration-150`}
       type='button'
       onClick={onClick}
+      disabled={disabled}
     >
-      {!flip && <Icon className='text-lg' />}
+      {Icon && !flip && <Icon />}
       {label}
-      {flip && <Icon className='text-lg' />}
+      {Icon && flip && <Icon />}
     </button>
   );
 }

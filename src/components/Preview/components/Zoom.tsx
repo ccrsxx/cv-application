@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { Button } from '../Utils';
-import { PreviewContext, RiZoomInLine, RiZoomOutLine } from '../../common';
+import { Button } from '../../Utils';
+import { PreviewContext, RiZoomInLine, RiZoomOutLine } from '../../../common';
 
 export function Zoom() {
   const { zoomIn, zoomOut } = useContext(PreviewContext);

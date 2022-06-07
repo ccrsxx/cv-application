@@ -1,28 +1,36 @@
+export interface IEducationPart {
+  degree: string;
+  university: string;
+  from: string;
+  to: string;
+}
+
+export interface IExperiencePart {
+  title: string;
+  company: string;
+  from: string;
+  to: string;
+  description: string;
+}
+
+export type IFormList = IEducationPart | IExperiencePart;
+export type IFormLists = Array<IEducationPart | IExperiencePart>;
+
 export interface ICvData {
   info: {
     firstName: string;
     lastName: string;
     profession: string;
-    profileText: string;
+    profile: string;
   };
   contact: {
     website: string;
     email: string;
-    location: string;
+    address: string;
     phone: string;
   };
-  education: {
-    degree: string;
-    school: string;
-    from: string;
-    to: string;
-  }[];
-  work: {
-    title: string;
-    company: string;
-    from: string;
-    to: string;
-  }[];
+  education: IEducationPart[];
+  experience: IExperiencePart[];
   skills: {
     skill: string;
   }[];

@@ -11,40 +11,29 @@ export const defaultCvData = {
     firstName: '',
     lastName: '',
     profession: '',
-    profileText: ''
+    profile: ''
   },
   contact: {
     website: '',
     email: '',
-    location: '',
+    address: '',
     phone: ''
   },
   education: [
     {
       degree: '',
-      school: '',
-      from: '',
-      to: ''
-    },
-    {
-      degree: '',
-      school: '',
+      university: '',
       from: '',
       to: ''
     }
   ],
-  work: [
+  experience: [
     {
       title: '',
       company: '',
       from: '',
-      to: ''
-    },
-    {
-      title: '',
-      company: '',
-      from: '',
-      to: ''
+      to: '',
+      description: ''
     }
   ],
   skills: [
@@ -64,4 +53,9 @@ export const defaultCvData = {
       skill: ''
     }
   ]
+};
+
+export const defaultFormIndexes = {
+  education: 0,
+  experience: 0
 };
