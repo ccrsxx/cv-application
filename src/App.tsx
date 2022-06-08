@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Editor, Preview } from './components';
 import {
   cvConfig,
@@ -9,7 +9,8 @@ import {
   editorSections,
   PreviewContext,
   takeScreenshot,
-  defaultFormIndexes
+  getRandomSkill,
+  defaultFormIndexes as defaultFormsIndex
 } from './common';
 import type {
   ICvData,
@@ -23,8 +24,7 @@ import type {
 
 export function App() {
   const [editorIndex, setEditorIndex] = useState(0);
-  const [formIndexes, setFormIndexes] =
-    useState<IFormIndexes>(defaultFormIndexes);
+  const [formsIndex, setFormsIndex] = useState<IFormIndexes>(defaultFormsIndex);
   const [windowWidth, windowHeight] = useWindowSize();
   const [cvData, setCvData] = useState<ICvData>(defaultCvData);
 
@@ -66,42 +66,37 @@ export function App() {
 
   const handleFormIndexesChange =
     (sectionName: IListFormNames, index: number) => () => {
-      setFormIndexes({
-        ...formIndexes,
+      setFormsIndex({
+        ...formsIndex,
         [sectionName]: index
       });
     };
 
-  const handleSectionChange = useCallback(
-    (index: number) => () => {
-      setEditorIndex(index);
-    },
-    []
-  );
+  const handleSectionChange = (index: number) => () => {
+    setEditorIndex(index);
+  };
 
-  const handleCvDataChange = useCallback(
+  const handleCvDataChange =
     (sectionName: SectionsName, formIndex: null | number) =>
-      ({
-        target: { name, value }
-      }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-        setCvData((prevCvData) => {
-          if (formIndex === null)
-            return {
-              ...prevCvData,
-              [sectionName]: {
-                ...prevCvData[sectionName],
-                [name]: value
-              }
-            };
+    ({
+      target: { name, value }
+    }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setCvData((prevCvData) => {
+        if (formIndex === null)
+          return {
+            ...prevCvData,
+            [sectionName]: {
+              ...prevCvData[sectionName],
+              [name]: value
+            }
+          };
 
-          const newCvData = { ...prevCvData };
-          const newFormData = newCvData[sectionName] as IFormLists;
-          newFormData[formIndex][name as keyof IFormList] = value;
+        const newCvData = { ...prevCvData };
+        const newFormData = newCvData[sectionName] as IFormLists;
+        newFormData[formIndex][name as keyof IFormList] = value;
 
-          return { ...newCvData, newFormData };
-        }),
-    []
-  );
+        return newCvData;
+      });
 
   const addForm = (sectionName: IListFormNames) => () => {
     const defaultForm =
@@ -119,12 +114,12 @@ export function App() {
             to: '',
             description: ''
           };
+
     setCvData((prevCvData) => ({
       ...prevCvData,
       [sectionName]: [...prevCvData[sectionName], defaultForm]
     }));
-
-    handleFormIndexesChange(sectionName, formIndexes[sectionName] + 1)();
+    handleFormIndexesChange(sectionName, formsIndex[sectionName] + 1)();
   };
 
   const deleteForm =
@@ -140,6 +135,27 @@ export function App() {
       });
     };
 
+  const addSkill = () => {
+    setCvData((prevCvData) => ({
+      ...prevCvData,
+      skills: [
+        ...prevCvData.skills,
+        {
+          skill: '',
+          key: Math.random(),
+          placeholder: getRandomSkill()
+        }
+      ]
+    }));
+  };
+
+  const deleteSkill = (key: number) => () => {
+    setCvData((prevCvData) => ({
+      ...prevCvData,
+      skills: prevCvData.skills.filter((skill) => skill.key !== key)
+    }));
+  };
+
   const [zoomOut, zoomIn] = useMemo(
     () => [true, false].map((parameter) => handleZoom(parameter)),
     []
@@ -152,12 +168,14 @@ export function App() {
       <EditorContext.Provider
         value={{
           cvData,
-          formIndexes,
+          formIndexes: formsIndex,
           handleFormIndexesChange,
           handleSectionChange,
           handleCvDataChange,
           getScreenshot,
+          deleteSkill,
           deleteForm,
+          addSkill,
           addForm
         }}
       >

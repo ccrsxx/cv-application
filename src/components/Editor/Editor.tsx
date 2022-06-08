@@ -158,12 +158,24 @@ const formData = {
         placeholder: 'I was a Software Engineer at Google'
       }
     ]
+  },
+  skills: {
+    inputFields: [
+      {
+        id: 'skill',
+        wide: true,
+        type: 'text',
+        label: '',
+        textarea: false,
+        placeholder: 'Python'
+      }
+    ]
   }
 } as IFormData;
 
 export function Editor({ editorIndex, editorSections }: EditorProps) {
   const editorName = editorSections[editorIndex] as SectionsName;
-  const sectionInputFields = formData[editorName];
+  const { inputFields } = formData[editorName];
 
   return (
     <div
@@ -171,7 +183,7 @@ export function Editor({ editorIndex, editorSections }: EditorProps) {
                  bg-main-color p-8 font-kumbh-san'
     >
       <Header editorName={editorName} />
-      <Form {...sectionInputFields} editorName={editorName} />
+      <Form inputFields={inputFields} editorName={editorName} />
       <Navigator
         currentIndex={editorIndex}
         items={editorSections}

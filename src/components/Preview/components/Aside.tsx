@@ -12,7 +12,7 @@ import {
 
 export function Aside() {
   const { asideData } = useContext(PreviewContext);
-  const { contact, education } = asideData;
+  const { contact, education, skills } = asideData;
 
   return (
     <aside
@@ -47,9 +47,9 @@ export function Aside() {
         ))}
       </Section>
       <Section name='skills'>
-        <IconDetails label='Python' />
-        <IconDetails label='JavaScript' />
-        <IconDetails label='TypeScript' />
+        {skills.map(({ skill }, index) => (
+          <IconDetails label={skill} key={index} />
+        ))}
       </Section>
     </aside>
   );

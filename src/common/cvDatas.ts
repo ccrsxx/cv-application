@@ -38,19 +38,19 @@ export const defaultCvData = {
   ],
   skills: [
     {
-      skill: ''
+      skill: '',
+      key: 0,
+      placeholder: 'Python'
     },
     {
-      skill: ''
+      skill: '',
+      key: 1,
+      placeholder: 'JavaScript'
     },
     {
-      skill: ''
-    },
-    {
-      skill: ''
-    },
-    {
-      skill: ''
+      skill: '',
+      key: 2,
+      placeholder: 'TypeScript'
     }
   ]
 };

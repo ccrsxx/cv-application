@@ -5,10 +5,11 @@ import type {
   IFormLists,
   IHeaderData,
   IEducationPart,
-  IExperiencePart
+  IExperiencePart,
+  ISkill
 } from '../types';
 
-function parseArrayData(formList: IFormLists) {
+function parseArrayData(formList: any[]) {
   return formList.filter((item) => Object.values(item).some((value) => value));
 }
 
@@ -38,11 +39,12 @@ function parseAsideData(cvData: ICvData) {
 
   const filteredContact = Object.entries(contact).filter(([_, value]) => value);
   const filteredEducation = parseArrayData(education) as IEducationPart[];
+  const filteredSkills = parseArrayData(skills) as ISkill[];
 
   return {
     contact: filteredContact,
     education: filteredEducation,
-    skills
+    skills: filteredSkills
   };
 }
 

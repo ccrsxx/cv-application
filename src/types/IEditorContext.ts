@@ -15,6 +15,8 @@ export interface IEditorContext {
     formIndex: null | number
   ) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   getScreenshot: () => void;
+  deleteSkill: (key: number) => () => void;
   deleteForm: (sectionName: IListFormNames, targetIndex: number) => () => void;
+  addSkill: () => void;
   addForm: (sectionName: IListFormNames) => () => void;
 }

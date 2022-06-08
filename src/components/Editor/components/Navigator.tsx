@@ -4,6 +4,7 @@ import { Button } from '../../Utils';
 import {
   RiAddLine,
   RiEditLine,
+  RiSaveLine,
   EditorContext,
   RiDeleteBinLine,
   RiArrowLeftSLine,
@@ -85,8 +86,8 @@ export function Navigator({
         />
       ) : inEditorSection ? (
         <Button
-          Icon={RiEditLine}
-          label='Autofill'
+          Icon={RiSaveLine}
+          label='Save'
           className='bg-accent-color text-dark-color hover:text-black focus:!ring-white'
           onClick={getScreenshot}
           flip

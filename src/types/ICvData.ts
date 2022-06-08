@@ -13,6 +13,12 @@ export interface IExperiencePart {
   description: string;
 }
 
+export interface ISkill {
+  skill: string;
+  key: number;
+  placeholder: string;
+}
+
 export type IFormList = IEducationPart | IExperiencePart;
 export type IFormLists = Array<IEducationPart | IExperiencePart>;
 
@@ -31,7 +37,5 @@ export interface ICvData {
   };
   education: IEducationPart[];
   experience: IExperiencePart[];
-  skills: {
-    skill: string;
-  }[];
+  skills: ISkill[];
 }
