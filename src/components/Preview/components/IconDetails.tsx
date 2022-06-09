@@ -1,4 +1,4 @@
-import type { IconType } from 'react-icons';
+import type { IconType } from '../../../types';
 
 interface IconDetailsProps {
   Icon?: IconType;
@@ -8,7 +8,7 @@ interface IconDetailsProps {
 export function IconDetails({ Icon, label }: IconDetailsProps) {
   return (
     <div className='flex items-center gap-2'>
-      {Icon ? <Icon /> : <span className='scale-150'>•</span>}
+      {(Icon && <Icon />) || (label && <span className='scale-150'>•</span>)}
       {label}
     </div>
   );

@@ -28,10 +28,14 @@
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
+    "jsx-a11y/control-has-associated-label": "off",
     "jsx-quotes": ["error", "prefer-single"],
     "no-console": "warn",
     "linebreak-style": "off",
     "no-nested-ternary": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "react/self-closing-comp": "warn",
     "import/order": [
@@ -40,7 +44,6 @@
         "groups": ["builtin", "external", "sibling", "parent", "index", "type"]
       }
     ],
-    "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "import/prefer-default-export": "off"
   }
 }
