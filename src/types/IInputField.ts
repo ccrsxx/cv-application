@@ -1,8 +1,8 @@
 export interface IInputField {
   id: string;
-  wide?: boolean;
-  type?: string;
+  wide: boolean;
+  type: string;
   label: string;
-  textarea?: boolean;
+  textarea: boolean;
   placeholder: string;
 }

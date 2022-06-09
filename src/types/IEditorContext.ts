@@ -1,11 +1,12 @@
 import type { ICvData } from './ICvData';
-import type { IFormIndexes } from './IFormIndexes';
+import type { IFormsIndex } from './IFormsIndex';
 import type { IListFormNames, SectionsName } from './Utils';
 
 export interface IEditorContext {
   cvData: ICvData;
-  formIndexes: IFormIndexes;
-  handleFormIndexesChange: (
+  formsIndex: IFormsIndex;
+  aniDirection: 'left' | 'right';
+  handleFormsIndexChange: (
     sectionName: IListFormNames,
     index: number
   ) => () => void;
@@ -15,6 +16,7 @@ export interface IEditorContext {
     formIndex: null | number
   ) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   getScreenshot: () => void;
+  autofillData: () => void;
   deleteSkill: (key: number) => () => void;
   deleteForm: (sectionName: IListFormNames, targetIndex: number) => () => void;
   addSkill: () => void;

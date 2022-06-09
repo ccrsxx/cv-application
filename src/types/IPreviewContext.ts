@@ -1,4 +1,4 @@
-import type { IEducationPart, IExperiencePart } from './ICvData';
+import type { IEducationPart, IExperiencePart, ISkill } from './ICvData';
 
 export interface IMainData {
   profile: string;
@@ -8,7 +8,7 @@ export interface IMainData {
 export interface IAsideData {
   contact: [string, string][];
   education: IEducationPart[];
-  skills: any[];
+  skills: ISkill[];
 }
 
 export interface IHeaderData {
@@ -21,6 +21,5 @@ export interface IPreviewContext {
   headerData: IHeaderData;
   asideData: IAsideData;
   mainData: IMainData;
-  zoomOut: () => void;
-  zoomIn: () => void;
+  handleZoom: (zoomOut: boolean) => () => void;
 }

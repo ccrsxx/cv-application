@@ -1,17 +1,23 @@
 import { useContext } from 'react';
 import { Button } from '../../Utils';
 import { EditorContext } from '../../../common';
-import type { IListFormNames } from '../../../types';
+import type {
+  IListFormNames,
+  IIterableForms,
+  IEditorSections
+} from '../../../types';
 
 interface DotsProps {
-  items: string[];
+  items: IEditorSections | IIterableForms;
   formName?: IListFormNames;
   currentIndex: number;
 }
 
 export function Dots({ items, formName, currentIndex }: DotsProps) {
-  const { handleSectionChange, handleFormIndexesChange } =
-    useContext(EditorContext);
+  const {
+    handleSectionChange,
+    handleFormsIndexChange: handleFormIndexesChange
+  } = useContext(EditorContext);
 
   return (
     <div className='flex items-center gap-2'>
@@ -20,7 +26,8 @@ export function Dots({ items, formName, currentIndex }: DotsProps) {
           disabled={index === currentIndex}
           className={`${
             index === currentIndex && 'scale-150 !bg-accent-color'
-          } h-2 w-2 rounded-full bg-neutral-500 !p-0 transition-all hover:!scale-125`}
+          } h-1.5 w-1.5 rounded-full bg-neutral-500 !p-0 duration-500 
+            ease-in-out hover:!scale-125 sm:h-2 sm:w-2`}
           key={index}
           onClick={
             formName

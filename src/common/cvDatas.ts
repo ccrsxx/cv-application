@@ -1,3 +1,5 @@
+import { getTwoSentences } from './generateData';
+
 export const cvConfig = {
   previewWidthPercent: 0.55,
   resumeWidth: 950,
@@ -40,22 +42,22 @@ export const defaultCvData = {
     {
       skill: '',
       key: 0,
-      placeholder: 'Python'
+      placeholder: getTwoSentences()
     },
     {
       skill: '',
       key: 1,
-      placeholder: 'JavaScript'
+      placeholder: getTwoSentences()
     },
     {
       skill: '',
       key: 2,
-      placeholder: 'TypeScript'
+      placeholder: getTwoSentences()
     }
   ]
 };
 
-export const defaultFormIndexes = {
+export const defaultFormsIndex = {
   education: 0,
   experience: 0
 };

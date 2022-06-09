@@ -14,12 +14,13 @@ export function Experience({
   description
 }: ExperienceProps) {
   const yearDivider = from && to ? '-' : '';
+  const companyDivider = company ? '|' : '';
 
   return (
     <div className='flex flex-col gap-1'>
       <h4 className='text-lg font-medium'>{title}</h4>
       <h5 className='text-base font-normal'>
-        {`${company} | ${from} ${yearDivider} ${to}`}
+        {`${company} ${companyDivider} ${from} ${yearDivider} ${to}`}
       </h5>
       <h6 className='text-sm'>{description}</h6>
     </div>

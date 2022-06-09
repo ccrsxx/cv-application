@@ -4,14 +4,28 @@ import type { RefObject, ReactZoomPanPinchRef, ICvConfig } from '../../types';
 
 interface PreviewProps {
   cvConfig: ICvConfig;
+  windowWidth: number;
   transformRef: RefObject<ReactZoomPanPinchRef>;
+  isPreviewMode: boolean;
   getCvScale: () => number;
 }
 
-export function Preview({ cvConfig, transformRef, getCvScale }: PreviewProps) {
+export function Preview({
+  cvConfig,
+  windowWidth,
+  transformRef,
+  isPreviewMode,
+  getCvScale
+}: PreviewProps) {
   const { minScale, maxScale } = cvConfig;
   return (
-    <div className='relative'>
+    <div
+      className={`${windowWidth > 400 && 'animate-left'} ${
+        isPreviewMode
+          ? 'animate-left opacity-100'
+          : 'pointer-event-none opacity-0'
+      } fixed lg:relative lg:block lg:opacity-100`}
+    >
       <Zoom />
       <TransformWrapper
         ref={transformRef}
@@ -23,7 +37,7 @@ export function Preview({ cvConfig, transformRef, getCvScale }: PreviewProps) {
       >
         <TransformComponent
           wrapperClass='!h-screen max-w-[100vw] min-w-[100vw] 
-                        sm:max-w-[55vw] sm:min-w-[55vw]'
+                        lg:max-w-[55vw] lg:min-w-[55vw]'
           contentClass='![padding-block:20px]'
         >
           <div

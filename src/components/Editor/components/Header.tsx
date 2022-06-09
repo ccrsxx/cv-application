@@ -6,7 +6,7 @@ interface HeaderProps {
 
 export function Header({ editorName }: HeaderProps) {
   return (
-    <h3 className='ml-0.5 text-xl font-bold capitalize text-white'>
+    <h3 className='col-span-2 ml-0.5 text-xl font-bold capitalize text-white'>
       {editorName}
     </h3>
   );

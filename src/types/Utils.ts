@@ -10,3 +10,10 @@ export type SectionsName =
   | 'education'
   | 'experience'
   | 'skills';
+export type IEditorSections = [
+  'info',
+  'contact',
+  'education',
+  'experience',
+  'skills'
+];

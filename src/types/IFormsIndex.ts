@@ -1,4 +1,4 @@
-export interface IFormIndexes {
+export interface IFormsIndex {
   education: number;
   experience: number;
 }

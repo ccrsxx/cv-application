@@ -6,14 +6,18 @@ import {
   RiEditLine,
   RiSaveLine,
   EditorContext,
-  RiDeleteBinLine,
   RiArrowLeftSLine,
   RiArrowRightSLine
 } from '../../../common';
-import type { IListFormNames } from '../../../types';
+import type {
+  IEditorSections,
+  IListFormNames,
+  IIterableForms,
+  SectionsName
+} from '../../../types';
 
 interface NavigatorProps {
-  items: any[];
+  items: IEditorSections | IIterableForms;
   formName?: IListFormNames;
   manyForms?: number;
   currentIndex: number;
@@ -31,10 +35,10 @@ export function Navigator({
 }: NavigatorProps) {
   const {
     addForm,
-    deleteForm,
+    autofillData,
     getScreenshot,
     handleSectionChange,
-    handleFormIndexesChange
+    handleFormsIndexChange: handleFormIndexesChange
   } = useContext(EditorContext);
 
   const [prevIndex, nextIndex] = [currentIndex - 1, currentIndex + 1];
@@ -43,20 +47,13 @@ export function Navigator({
   return (
     <nav
       className={`${
-        inFormSection ? 'col-span-2 mb-auto' : 'mt-auto pt-4'
-      } flex justify-between`}
+        inFormSection ? 'mb-auto' : 'pt-2'
+      } col-span-2 flex justify-between`}
     >
-      {!!(inFormSection && items.length > 1) && (
-        <Button
-          Icon={RiDeleteBinLine}
-          className='absolute top-8 right-8 h-10 w-10'
-          onClick={deleteForm(formName!, currentIndex)}
-        />
-      )}
       {prevValue ? (
         <Button
           Icon={RiArrowLeftSLine}
-          label={typeof prevValue === 'string' ? prevValue : 'Previous'}
+          label={inEditorSection ? (prevValue as SectionsName) : 'Previous'}
           onClick={
             inEditorSection
               ? handleSectionChange(prevIndex)
@@ -66,8 +63,9 @@ export function Navigator({
       ) : inEditorSection ? (
         <Button
           Icon={RiEditLine}
+          onClick={autofillData}
           label='Autofill'
-          className='bg-accent-color text-dark-color hover:text-black focus:!ring-white'
+          highlight
         />
       ) : (
         <Button className='invisible transition-none' />
@@ -76,7 +74,7 @@ export function Navigator({
       {nextValue ? (
         <Button
           Icon={RiArrowRightSLine}
-          label={typeof nextValue === 'string' ? nextValue : 'Next'}
+          label={inEditorSection ? (nextValue as SectionsName) : 'Next'}
           onClick={
             inEditorSection
               ? handleSectionChange(nextIndex)
@@ -88,8 +86,8 @@ export function Navigator({
         <Button
           Icon={RiSaveLine}
           label='Save'
-          className='bg-accent-color text-dark-color hover:text-black focus:!ring-white'
           onClick={getScreenshot}
+          highlight
           flip
         />
       ) : manyForms &&

@@ -9,7 +9,7 @@ export function Header() {
     <header className='col-span-2 rounded-t-lg bg-white text-dark-color'>
       <h1
         className='flex h-[170px] items-center justify-center gap-10 p-10
-                   text-center text-5xl font-light uppercase tracking-[14px]'
+                   text-center text-4xl font-light uppercase tracking-[14px] sm:text-5xl'
       >
         <span className='font-medium'>{firstName}</span> {lastName}
       </h1>
