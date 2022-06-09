@@ -2,13 +2,13 @@ import type {
   ICvData,
   IMainData,
   IAsideData,
-  IFormLists,
   IHeaderData,
   IEducationPart,
   IExperiencePart,
   ISkill
 } from '../types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseArrayData(formList: any[]) {
   return formList.filter((item) => Object.values(item).some((value) => value));
 }
@@ -37,6 +37,7 @@ function parseMainData(cvData: ICvData) {
 function parseAsideData(cvData: ICvData) {
   const { contact, education, skills } = cvData;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const filteredContact = Object.entries(contact).filter(([_, value]) => value);
   const filteredEducation = parseArrayData(education) as IEducationPart[];
   const filteredSkills = parseArrayData(skills) as ISkill[];

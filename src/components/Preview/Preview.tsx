@@ -20,7 +20,7 @@ export function Preview({
   const { minScale, maxScale } = cvConfig;
   return (
     <div
-      className={`${windowWidth > 400 && 'animate-left'} ${
+      className={`${windowWidth > 1024 && 'animate-left'} ${
         isPreviewMode
           ? 'animate-left opacity-100'
           : 'pointer-event-none opacity-0'
