@@ -234,7 +234,7 @@ export function App() {
           getCvScale={getCvScale}
         />
       </PreviewContext.Provider>
-      <Toggle onClick={togglePreview} />
+      <Toggle isPreviewMode={isPreviewMode} onClick={togglePreview} />
     </div>
   );
 }

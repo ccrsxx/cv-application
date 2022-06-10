@@ -30,8 +30,8 @@ export function Editor({
               ? '[grid-template-rows:auto_auto_1fr_auto]'
               : '[grid-template-rows:auto_1fr_auto_auto]'
             : '[grid-template-rows:auto_1fr_auto]'
-        } relative grid h-[555px] gap-4 rounded-lg 
-          bg-main-color p-6 font-kumbh-san sm:p-8`}
+        } relative grid h-[535px] gap-4 rounded-lg bg-main-color 
+          p-6 font-kumbh-san sm:h-[555px] sm:p-8`}
       >
         <Header editorName={editorName} />
         <Form inputFields={inputFields} editorName={editorName} />

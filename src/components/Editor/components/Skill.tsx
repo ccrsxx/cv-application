@@ -38,7 +38,6 @@ export function Skill({
         name={id}
         type={type}
         value={value}
-        autoComplete='pussy'
         onChange={handleChange}
         placeholder={placeholder}
       />

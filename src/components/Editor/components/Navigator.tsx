@@ -38,7 +38,7 @@ export function Navigator({
     autofillData,
     getScreenshot,
     handleSectionChange,
-    handleFormsIndexChange: handleFormIndexesChange
+    handleFormsIndexChange
   } = useContext(EditorContext);
 
   const [prevIndex, nextIndex] = [currentIndex - 1, currentIndex + 1];
@@ -57,7 +57,7 @@ export function Navigator({
           onClick={
             inEditorSection
               ? handleSectionChange(prevIndex)
-              : handleFormIndexesChange(formName!, prevIndex)
+              : handleFormsIndexChange(formName!, prevIndex)
           }
         />
       ) : inEditorSection ? (
@@ -78,7 +78,7 @@ export function Navigator({
           onClick={
             inEditorSection
               ? handleSectionChange(nextIndex)
-              : handleFormIndexesChange(formName!, nextIndex)
+              : handleFormsIndexChange(formName!, nextIndex)
           }
           flip
         />

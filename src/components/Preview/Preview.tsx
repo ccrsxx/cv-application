@@ -39,6 +39,7 @@ export function Preview({
           contentClass='![padding-block:20px]'
         >
           <div
+            id='cv'
             className='grid h-[1250px] w-[900px] font-work-sans [grid-template-columns:290px_1fr] 
                        [grid-template-rows:220px_1fr]'
           >

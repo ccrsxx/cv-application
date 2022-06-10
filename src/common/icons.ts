@@ -6,6 +6,7 @@ export {
   RiEditLine,
   RiSaveLine,
   RiPhoneLine,
+  RiEyeOffLine,
   RiGlobalLine,
   RiGithubLine,
   RiZoomInLine,
