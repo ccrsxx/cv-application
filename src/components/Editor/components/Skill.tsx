@@ -43,7 +43,7 @@ export function Skill({
       />
       <Button
         Icon={RiDeleteBinLine}
-        className={`${sectionLength > 7 && 'mr-5'} h-10 w-10`}
+        className={`${sectionLength > 7 && 'mr-4 sm:mr-5'} h-10 w-10`}
         onClick={deleteSkill}
       />
     </div>
