@@ -36,7 +36,7 @@ export const formData = {
         type: 'text',
         label: 'Profile',
         textarea: true,
-        placeholder: 'I am a full-stack developer with a passion for ...'
+        placeholder: 'I am a Full Stack Developer with a passion for ...'
       }
     ]
   },
