@@ -73,8 +73,7 @@ export function App() {
     let direction: 'left' | 'right';
 
     if (navName === 'editor') {
-      if (indexNumber === editorIndex + 1 || indexNumber === 4)
-        direction = 'right';
+      if (indexNumber > editorIndex) direction = 'right';
       else direction = 'left';
     } else if (indexNumber === formsIndex[navName] + 1) direction = 'right';
     else direction = 'left';
